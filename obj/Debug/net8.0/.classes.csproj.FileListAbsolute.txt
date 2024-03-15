@@ -26,3 +26,4 @@ d:\programmering\C#\Projects\c#projects\adventureGame\obj\Debug\net8.0\refint\.c
 d:\programmering\C#\Projects\c#projects\adventureGame\obj\Debug\net8.0\.classes.pdb
 d:\programmering\C#\Projects\c#projects\adventureGame\obj\Debug\net8.0\.classes.genruntimeconfig.cache
 d:\programmering\C#\Projects\c#projects\adventureGame\obj\Debug\net8.0\ref\.classes.dll
+D:\programmering\C#\Projects\c#projects\adventureGame\obj\Debug\net8.0\.classes.sourcelink.json
