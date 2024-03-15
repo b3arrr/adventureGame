@@ -12,19 +12,28 @@ To play the game, run the program and follow the prompts to navigate through roo
 */
 
 
+using System.ComponentModel;
+
 namespace adventure
 {
     internal class Program
     {
-
+        static Player? player1 = null;
         private static void Main(string[] args)
         {
             // Start the game
             startGame();
             Console.ReadKey();
-            player1.playerAttack();
 
+            player1.playerAttack()
+            Enemy.allEnemies[new Random().Next(0, Enemy.allEnemies.Count-1)].attack();
 
+            fight(player1, enemy1);
+        }
+
+        public void fight(Player player, Enemy enemy) {
+            Player.attack(Enemy);
+            Enemy.attack(Player);
         }
 
         private static void startGame()
@@ -32,12 +41,17 @@ namespace adventure
             initialize();
             Console.WriteLine("---Welcome to bears adventure game---");
             // Create a player
-            Player player1 = Player.makePlayer();
+            player1 = Player.makePlayer();
             // Create an inventory for the player
             ItemManager player1Inventory = Player.createInventory();
             // Display player information and inventory
             player1.info(player1Inventory);
+
+            new Troll(20,20,"I am troll");
+            new Tusse(40, 40, "I am tusse");
+            
         }
+
 
         private static void initialize()
         {
@@ -51,21 +65,21 @@ namespace adventure
             itemManager.addItem(new Item("Goblins eye", "A wethered scorn goblin eye", 1, false));
 
             //add enemies
-            Enemy troll = new Enemy(100, 30, "Cave Troll"); 
+            Troll troll = new Troll(100, 30, "Cave Troll"); 
         }
     }
 
 
 
 
-    public class Enemy
+    public abstract class Enemy
     {
-        int health;
-        int attackPower;
-        string? name;
+        protected int health;
+        protected int attackPower;
+        protected string? name;
          // Static list to hold all enemy objects
         public static List<Enemy> allEnemies { get; } = new List<Enemy>();
-        public Enemy(int health, int attackPower, string?name)
+        public Enemy(int health, int attackPower, string? name)
         {
             this.health = health;
             this.attackPower = attackPower;
@@ -74,7 +88,26 @@ namespace adventure
             //adds the enemy created to allEnemies list
             allEnemies.Add(this);
         }
+
+        public void attack() {
+            Console.WriteLine("FUCK YOU! I am " + this.GetType() + ", prepare to die!");
+        }
+
+        public static Enemy getRandomEnemy() {
+            // return 
+        }
     } 
+
+    public class Troll : Enemy
+    {
+        public Troll(int health, int attackPower, string? name) : base(health, attackPower, name) {}
+    }
+    public class Tusse : Enemy
+    {
+        public Tusse(int health, int attackPower, string? name): base(health, attackPower, name) {}
+    }
+
+    
 
     public class Player
     {
@@ -82,13 +115,13 @@ namespace adventure
         private int health;
         private string? name;
 
-        public void playerAttack (Player player1, List<ItemManager> enemy)
+        public void playerAttack (Enemy enemy)
         {
             Random attackRoll = new Random();
 
             Console.WriteLine("Enemy attacks you");
             int attack = attackRoll.Next(0,20);
-            player1.health -= attack;
+            health -= attack;
             Console.WriteLine($"Enemy hit you for {attack}!");
         }
 

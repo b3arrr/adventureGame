@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj": {}
+    "d:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj": {}
   },
   "projects": {
-    "c:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj": {
+    "d:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj",
+        "projectUniqueName": "d:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj",
         "projectName": ".classes",
-        "projectPath": "c:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj",
+        "projectPath": "d:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj",
         "packagesPath": "C:\\Users\\bjorn\\.nuget\\packages\\",
-        "outputPath": "c:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\obj\\",
+        "outputPath": "d:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bjorn\\AppData\\Roaming\\NuGet\\NuGet.Config"

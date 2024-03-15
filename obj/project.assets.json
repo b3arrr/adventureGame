@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj",
+      "projectUniqueName": "D:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj",
       "projectName": ".classes",
-      "projectPath": "C:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\.classes.csproj",
+      "projectPath": "D:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\.classes.csproj",
       "packagesPath": "C:\\Users\\bjorn\\.nuget\\packages\\",
-      "outputPath": "C:\\Bjørnar\\Work\\Coding\\Learning\\C#\\c#projects\\adventureGame\\obj\\",
+      "outputPath": "D:\\programmering\\C#\\Projects\\c#projects\\adventureGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bjorn\\AppData\\Roaming\\NuGet\\NuGet.Config"
