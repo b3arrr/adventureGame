@@ -16,11 +16,15 @@ namespace adventure
 {
     internal class Program
     {
+
         private static void Main(string[] args)
         {
             // Start the game
             startGame();
             Console.ReadKey();
+            player1.playerAttack();
+
+
         }
 
         private static void startGame()
@@ -29,7 +33,6 @@ namespace adventure
             Console.WriteLine("---Welcome to bears adventure game---");
             // Create a player
             Player player1 = Player.makePlayer();
-            Console.Clear();
             // Create an inventory for the player
             ItemManager player1Inventory = Player.createInventory();
             // Display player information and inventory
@@ -46,13 +49,48 @@ namespace adventure
             itemManager.addItem(new Item("Cursed Bow", "Cursed bow crafter from the kinship of dwarves and elves", 5, true));
             itemManager.addItem(new Item("Golden bow", "Golden bow crafted by golden tears of trolls", 1, true));
             itemManager.addItem(new Item("Goblins eye", "A wethered scorn goblin eye", 1, false));
+
+            //add enemies
+            Enemy troll = new Enemy(100, 30, "Cave Troll"); 
         }
     }
 
+
+
+
+    public class Enemy
+    {
+        int health;
+        int attackPower;
+        string? name;
+         // Static list to hold all enemy objects
+        public static List<Enemy> allEnemies { get; } = new List<Enemy>();
+        public Enemy(int health, int attackPower, string?name)
+        {
+            this.health = health;
+            this.attackPower = attackPower;
+            this.name = name;
+
+            //adds the enemy created to allEnemies list
+            allEnemies.Add(this);
+        }
+    } 
+
     public class Player
     {
+        private string? description;
         private int health;
         private string? name;
+
+        public void playerAttack (Player player1, List<ItemManager> enemy)
+        {
+            Random attackRoll = new Random();
+
+            Console.WriteLine("Enemy attacks you");
+            int attack = attackRoll.Next(0,20);
+            player1.health -= attack;
+            Console.WriteLine($"Enemy hit you for {attack}!");
+        }
 
         public static ItemManager createInventory()
         {
@@ -64,10 +102,11 @@ namespace adventure
             return player1Inventory;
         }
 
-        public Player(string? name)
+        public Player(string? name, string? description)
         {
             this.health = 100;
             this.name = name;
+            this.description = description;
         }
 
         public static Player makePlayer()
@@ -75,14 +114,16 @@ namespace adventure
             // Prompt the player to enter their name and create a Player object
             Console.WriteLine("Please enter your name");
             string? name = Console.ReadLine();
-            return new Player(name);
+            Console.WriteLine("Please tell em your backstory");
+            string? description= Console.ReadLine();
+            return new Player(name, description);
         }
 
         public void info(ItemManager inventory)
         {
             // Display player information and inventory
             Console.WriteLine("---Character info---");
-            Console.WriteLine($"Player name: {name}\nPlayer health: {health}");
+            Console.WriteLine($"Player name: {name}\nPlayer health: {health}\nPlayer desscription: {description}");
             Console.Write("\n---Player inventory---\n");
             inventory.displayInventory();
         }
